@@ -1,0 +1,46 @@
+
+Now let's take the example from the previous lecture to the next level.
+
+/**Read code**/
+
+Let's say we want to define a Teacher class, and here we add a teach() method, simply to console.log('teach'). However, all Teachers should be able to walk because they are all persons, we don't want to duplicate this walk method in the 'Person' and 'Teacher' classes, so how can we solve this problem.
+
+Basically there are two solutions her, we can use 'inheritance' or 'composition'. The explanation of both these approaches is beyond the scope of this course, that's something that I have talked about in my other course 'Object-Oriented' programming in JavaScript, but as well as React is concerned, you need to understand the concept of inheritance. So we can have this 'Teacher' class inherit from the 'Person' class and this means it will inherit all the methods defined in the 'Person' class.
+
+/**Read code**/
+
+How can we do it very easy, so after 'Teacher' we add 'extends' 'Person'. So Teacher extends Person. Now if we create a teacher object and set it to a 'new' 'Teacher', look at its constructor, you see the 'name' parameter. So the 'Teacher' class is also inheriting the constructor() method of the 'Person' class. So let's pass a name here 'Mosh', now teacher .(dot), look we have the name property that we have inherited from the 'Person' class, we have the teach() method that we added specifically in the 'Teacher' class, and walk() method which we also inherited from the 'Person' class. So this is inheritance in action.
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/

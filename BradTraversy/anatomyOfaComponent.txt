@@ -1,0 +1,5 @@
+
+The anatomy of a component:
+Now, you can have functional components as well, this is a class based component which has what is called as a 'life cycle' and you can have different life cycle methods, also it holds state, functional components can only hold state if they use something called 'React Hooks' which are very new.
+
+So basically we have a class called 'Post', so it's a 'Post' component, it extends the 'Component' class in the React library. And we have our render method, which is the only required life cycle method, and this takes care of rendering the component on the page, and it's gonna return what's called 'JSX'. So, that is 'JSX', it's very similar to HTML and we can have JavaScript expressions embedded directly in the mark up. So as you can see in the code, we're displaying the 'title' and the 'body' from the state and we can create component state by simply creating a 'state' object with different key-value pairs. So we can put any kind of JavaScript expression we want inside these curly braces '{}'. So it's very dynamic. We can also have events all type of stuff that we're gonna get into.

@@ -1,0 +1,26 @@
+One of the modern JavaScript features that we see a lot in react applications is 'Object Destructuring'.
+
+So let's imagine we have an address object like this: We have 'street' set to some value, also 'city' and 'country'. Now let's say somewhere in the code we need to extract the value of these properties and store them in separate variables.
+
+/**Read code**/
+
+So this is what we typically do: 'const street' we set it to 'address' .(dot) 'street'. And similarly, 'const city' we set this to 'address' .(dot) 'city' and finally 'const country'...
+
+/**Read code**/
+
+ The problem with this code is have this repetitive 'address' .(dot) 'address' .(dot) 'address' .(dot) code in multiple places. Destructuring solves this problem.
+
+ If we want to have three variables, or three constants, 'street', 'city' and 'country'. And we want them to be set to these properties in the 'address' object. We can rewrite this code like this: So 'const', we add curly braces {} -this is the Destructuring syntax- We add the name of the target properties, in this case, 'street', 'city' and country, we set this to (=) the 'address' object. And like of code is equivalent to the previous three lines of code, and we no longer have this repetition of address .(dot)
+
+/**Read code**/
+
+So basically we are extracting the 'street' property from the 'address' object and storing it in a constant called 'street'.
+Now, you don't have to necessarily list all the properties in the 'address' object, maybe you're only interested in the 'city' property, in that case you can drop the other two properties.
+
+/**Read code**/
+
+Now we if you want to use a different name here in the curly braces {}, for example what if you want to call this constant 'city' -> 'ct'. We can use and alias here, so we add :(colon) 'ct'. With this syntax we're defining a new constant called 'ct' and we're setting that to the 'city' property of the address object.
+
+/**Read code**/
+
+So this is object Destructuring that you will see a lot in the future sections.

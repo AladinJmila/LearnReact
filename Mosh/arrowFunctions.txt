@@ -1,0 +1,18 @@
+wrap this code in a setTimeout() function, and once it's called, the person.talk() returns the global object "window".
+
+The reason this happened is because here, this callback function is not part of any objects, so it's not like the talk() method in the person object, it's a stand-alone function, and as I told you before, when we call a function as a stand-alone outside of an object, by default this returns the window object.
+now in the previous example instead of the window object we got undefined because in that particular case, when we got a reference to a method in an object the 'strict mode' kicked in and returned 'undefined' instead of the window object.
+but in this particular case in case of callback functions the 'strict mode' dose not override this behavior so this returns a reference to the window object.
+
+So! How can we solve this problem? In other words, how can we have a reference to the person object inside of this call-back function?
+
+Well! Here's one solution:
+  So, in the old days we used to declare a variable and call it 'that' or 'self' and set it to 'this'. So we set this variable outside this callback function and now we can use self inside of this callback function to get access to the person object, right!
+  So now let's log self on the console, save the changes then back in chrome, you can see we have a reference to the person object.
+  So this is the pattern we used in the old days.
+
+The second solution:
+   Now with arrow functions we no longer have to do this, because arrow functions don't rebind 'this'. In other words, if we change this call-back function to an arrow function it will inherit the 'this' keyword.
+   Now, back in the console, you can see 'this' returns a reference to the person object. In other words, here in the call-back function we have used the arrow function syntax, 'this' is not reset, instead it inherits 'this' in the context in which this code is defined.
+
+==> So this is what I want you to take away, arrow functions don't rebind the 'this' keyword, they inherit it instead.

@@ -1,12 +1,19 @@
 
-
-
-/**Read code**/
-
-
+Now let's talk about classes,
 
 /**Read code**/
 
+So look at this piece of code, we have this 'person' object with two members 'name' and 'walk'. What if you want to create another person object that can walk, well let me temporarily duplicate this code. We call this other object 'person2'.
+
+/**Read code**/
+
+Now there's a problem here, the problem is we have duplicated the implementation of the walk() method. Now this implementation is a single line of code, but in a real world application, this method can be five to ten lines of code or maybe more. If there is a bug in this method, then we'll have to come back and fix it in all 'person' objects. That doesn't make sense right?
+
+So when we have an object with at least one method, we need a blueprint to create objects of that type, and that's when we use 'classes'. So let me show you how we can solve this problem.
+
+So I'm going to delete 'person2' and create a class, so we start with the 'class' keyword, give our class a name 'Person', and note that here we're using Pascal naming convention, so the first letter of every word should be uppercase. As another example, if you wanted to call this class 'cool person' you would have to name it like this 'CoolPerson', so note that 'C' and 'P' are capital. So here's our class then we add a code block '{}' and add the walk() method inside our 'Person' class.
+
+Finally we need to add another method here that is a special that's called 'constructor'. So just like the walk() method, constructor() is a method but the name is reserved, it's a special keyword that's why it has the same color as the 'class' keyword. Now this constructor() can take parameters, so we can pass the name from the outside
 
 
 /**Read code**/

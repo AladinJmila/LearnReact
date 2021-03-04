@@ -1,0 +1,39 @@
+
+Another JavaScript feature that we use a lot in React is the Spread Operator.
+
+Let's say we have two arrays: 'first' with three numbers, and 'second' with three more numbers.
+
+/**Read code**/
+
+Let's say we want to combine these two arrays.
+
+One way is to combine them is like this:
+'const combined =' and we get to the 'first' calls the concat() method and pass the 'second' array. This is the old way of doing things.
+
+/**Read code**/
+
+Now, with the spread operator we can rewrite the code like this:
+'const combined=', we create a new array '[]' we spread '...' the 'first' array, and that means will get every item in this array and put it in our new array. And then, similarly we'll spread '...' the 'second' array. So the spread operator is represented using three dots '...'
+
+/**Read code**/
+
+On the first glance, you may say there is really not much of a difference between the first and second statements in terms of the length, so why is this an improvement?
+Well, what if we wanted to add an element somewhere in the middle. We can simply come here and add an element right in the middle. But when using the concat() method if you want to get the same results, our code would end up looking more complicated.
+
+/**Read code**/
+
+Similarly, we can add another element here at the end. We can visually see what the end result will look line, so we have a new array, first we spread all the items in the 'first' array and we have 'a' and so on.
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/

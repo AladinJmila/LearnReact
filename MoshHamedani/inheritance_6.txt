@@ -5,7 +5,7 @@ Now let's take the example from the previous lecture to the next level.
 
 Let's say we want to define a Teacher class, and here we add a teach() method, simply to console.log('teach'). However, all Teachers should be able to walk because they are all persons, we don't want to duplicate this walk method in the 'Person' and 'Teacher' classes, so how can we solve this problem.
 
-Basically there are two solutions her, we can use 'inheritance' or 'composition'. The explanation of both these approaches is beyond the scope of this course, that's something that I have talked about in my other course 'Object-Oriented' programming in JavaScript, but as well as React is concerned, you need to understand the concept of inheritance. So we can have this 'Teacher' class inherit from the 'Person' class and this means it will inherit all the methods defined in the 'Person' class.
+Basically there are two solutions here, we can use 'inheritance' or 'composition'. The explanation of both these approaches is beyond the scope of this course, that's something that I have talked about in my other course 'Object-Oriented' programming in JavaScript, but as well as React is concerned, you need to understand the concept of inheritance. So we can have this 'Teacher' class inherit from the 'Person' class and this means it will inherit all the methods defined in the 'Person' class.
 
 /**Read code**/
 
@@ -15,37 +15,12 @@ How can we do it very easy, so after 'Teacher' we add 'extends' 'Person'. So Tea
 
 Now let's take this to the next level:
 Let's imagine, when creating a 'Teacher', apart from the name we want to pass their degree. So here in the 'Teacher' class we need to add a constructor() method, this constructor() should take two parameters. One is 'name' which we need to pass to the 'Person' class, and I will show you that in a second, the other parameter is the 'degree'.
-Now because we added a custom constructor here, we need to call the constructor() of the 'Person' class, if don't do that we get an error.
 
 /**Read code**/
+
+Now because we added a custom constructor here, we need to call the constructor() of the 'Person' class, if don't do that we get an error.
 
 So, whenever we add a constructor(), we need to call the constructor of its parent class. So here in the constructor(), we have this special keyword 'super' that references the parent class, so we call it just like a method and you can see here we have the name parameter, so we pass this 'name' argument that we receive here. So this will initialize the 'name' property, next we need to initialize the 'degree' property. so 'this' 'degree' will set it to this 'degree' argument. Now finally, on the calling of the Teacher() class we need to pass the 'degree' that is let's say 'Master of Science'. So if we type 'teacher.' now you can see we have two properties 'degree' and 'name', as well as two methods teach() and walk(). So this is inheritance in action as you will see in the next section, whenever we create a 'component', we should have that 'component' 'extend' the base 'component' that is defined in React.
 Because that base 'component' in React, has a bunch of methods that we need in our components.
 
 So, we're done with 'classes', next we'll look at modules.
-
-/**Read code**/
-
-
-
-/**Read code**/
-
-
-
-/**Read code**/
-
-
-
-/**Read code**/
-
-
-
-/**Read code**/
-
-
-
-/**Read code**/
-
-
-
-/**Read code**/

@@ -25,7 +25,7 @@ class Teacher extends Person {
   }
 }
 
-const person = new Teacher('Mosh')
+const teacher = new Teacher('Mosh')
 
 /**Read text**/
 

@@ -1,7 +1,7 @@
 const address = {
   street: '',
   city: '',
-  county: ''
+  country: ''
 }
 
 /**Read text**/

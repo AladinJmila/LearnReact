@@ -14,37 +14,3 @@ Class Post extends React.Component {
     )
   }
 }
-
-/**Read text**/
-
-
-
-/**Read text**/
-
-
-
-/**Read text**/
-
-
-
-/**Read text**/
-
-
-
-/**Read text**/
-
-
-
-/**Read text**/
-
-
-
-/**Read text**/
-
-
-
-/**Read text**/
-
-
-
-/**Read text**/

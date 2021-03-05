@@ -30,5 +30,5 @@ class Person {
 /**Read text**/
 
 const person = new Person('Mosh')
-person.nane
+person.name
 person.walk()

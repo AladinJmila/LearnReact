@@ -8,11 +8,11 @@ Let's say we have two arrays: 'first' with three numbers, and 'second' with thre
 Let's say we want to combine these two arrays.
 
 One way is to combine them is like this:
-constant 'combined ' and we get to the 'first' calls the concat() method and pass the 'second' array. This is the old way of doing things.
+constant 'combined ' and we get the 'first' to call the concat() method and pass the 'second' array. This is the old way of doing things.
 
 /**Read code**/
 
-Now, with the spread operator we can rewrite the code like this:
+Now, with the Spread Operator we can rewrite the code like this:
 constant 'combined', we create a new array '[]' we spread '...' the 'first' array, and that means will get every item in this array and put it in our new array. And then, similarly we'll spread '...' the 'second' array. So the spread operator is represented using three dots '...'
 
 /**Read code**/
@@ -22,7 +22,7 @@ Well, what if we wanted to add an element somewhere in the middle. We can simply
 
 /**Read code**/
 
-Similarly, we can add another element here at the end. We can visually see what the end result will look line, so we have a new array, first we spread all the items in the 'first' array and we have 'a' and so on. So basically, when we apply the Spread Operator on an array, we get each individual item in that array
+Similarly, we can add another element here at the end. We can visually see what the end result will look like, so we have a new array, first we spread all the items in the 'first' array and we have 'a' and so on. So basically, when we apply the Spread Operator on an array, we get each individual item in that array
 
 /**Read code**/
 
@@ -33,11 +33,11 @@ Say we want to clone the 'first' array but define a constant 'clone', we create 
 
 Now we can also apply the Spread Operator on Objects, so we're going to rewrite this code but use an object instead.
 
-Let's define a constant call it 'first', set it to and object '{}' with the 'name' property set to 'Mosh'. Then a 'second' object with another property, 'job' set to 'instructor'
+Let's define a constant call it 'first', set it to an object '{}' with the 'name' property set to 'Mosh'. Then a 'second' object with another property, 'job' set to 'instructor'
 
 /**Read code**/
 
-let's say we want to combine these two objects into one object. We declare a constant called 'combined', we create a new object '{}' - note that previously we created array because we were combining two arrays - now we are combining two objects, we create a new object. Now in this new object we want to add all the properties of the 'first' object, so we spread '...' the 'first' object, then we'll also spread '...' the 'second' object and we ca optionally add other properties, let's say 'location' 'Australia'.
+let's say we want to combine these two objects into one object. We declare a constant called 'combined', we create a new object '{}' - note that previously we created array because we were combining two arrays - now we are combining two objects, we create a new object. Now in this new object we want to add all the properties of the 'first' object, so we spread '...' the 'first' object, then we'll also spread '...' the 'second' object and we can optionally add other properties, let's say 'location' 'Australia'.
 Now if you log this 'combined' object on the console, we get an object with three properties.
 
 /**Read code**/

@@ -1,0 +1,41 @@
+
+Hey, what's going on guys. So this is going to be a Crash Course in 'asynchronous' JavaScript, so basically we're going to cover a couple different things. I want to cover 'callbacks' 'promises' and also 'asynch''await' syntax. Now these are all ways to deal with 'asynchronous' data, and what that means basically 'asynchronous' is when something is going on but you don't want to wait until that thing is done to continue your program, you want to continue while it's happening so it's happening asynchronously rather than 'synchronous' programming where something happens and you wait until it's completely finished until you move on to the next. Now 'asynchronous' programming is relevant to JavaScript because we're often making request to servers else where and it can take a couple of seconds to get you data back for instance. And you might not want your program to stall and wait for that data to come back, you want to keep going, keep doing something, so this is where 'callbacks' come in and 'callbacks' were used for a long time until ES6 was released or ES2015 where 'promises' were introduced to the language, and 'promises' give you a more elegant way the handle 'asynchronous' data. And then I think it was ES7, 'asynch''await' was introduced which is still dealing with promises just in a different way, you're dealing with the response in a way that is more elegant and it looks more like 'synchronous' programming, rather than using the '.then' and so on if you guys have ever used 'promises'. So we're gonna cover all those things, initially I was going to do a separate video on them, but I figured they're all relevant, we're going to use some of the same code on the 'callbacks' and 'promises' and you can see, what you have to do basically change it from a 'callback' to a 'promise'. we're also going to take a look at the 'promise''.all' if you are resolving multiple 'promises', you can do that, you know, call them all at the same time and wait for each one to be done.
+And a lot of this code is actually from my 'Modern JavaScript from the beginning' on 'Udemy'
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/

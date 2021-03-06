@@ -1,22 +1,43 @@
 
-Hey, what's going on guys. So this is going to be a Crash Course in 'asynchronous' JavaScript, so basically we're going to cover a couple different things. I want to cover 'callbacks' 'promises' and also 'asynch''await' syntax. Now these are all ways to deal with 'asynchronous' data, and what that means basically 'asynchronous' is when something is going on but you don't want to wait until that thing is done to continue your program, you want to continue while it's happening so it's happening asynchronously rather than 'synchronous' programming where something happens and you wait until it's completely finished until you move on to the next. Now 'asynchronous' programming is relevant to JavaScript because we're often making request to servers else where and it can take a couple of seconds to get you data back for instance. And you might not want your program to stall and wait for that data to come back, you want to keep going, keep doing something, so this is where 'callbacks' come in and 'callbacks' were used for a long time until ES6 was released or ES2015 where 'promises' were introduced to the language, and 'promises' give you a more elegant way the handle 'asynchronous' data. And then I think it was ES7, 'asynch''await' was introduced which is still dealing with promises just in a different way, you're dealing with the response in a way that is more elegant and it looks more like 'synchronous' programming, rather than using the '.then' and so on if you guys have ever used 'promises'. So we're gonna cover all those things, initially I was going to do a separate video on them, but I figured they're all relevant, we're going to use some of the same code on the 'callbacks' and 'promises' and you can see, what you have to do basically change it from a 'callback' to a 'promise'. we're also going to take a look at the 'promise''.all' if you are resolving multiple 'promises', you can do that, you know, call them all at the same time and wait for each one to be done.
-And a lot of this code is actually from my 'Modern JavaScript from the beginning' on 'Udemy'
+Hey, what's going on guys. So this is going to be a Crash Course in 'asynchronous' JavaScript, so basically we're going to cover a couple different things. I want to cover 'callbacks' 'promises' and also 'async''await' syntax. Now these are all ways to deal with 'asynchronous' data, and what that means basically 'asynchronous' is when something is going on but you don't want to wait until that thing is done to continue your program, you want to continue while it's happening so it's happening asynchronously rather than 'synchronous' programming where something happens and you wait until it's completely finished until you move on to the next. Now 'asynchronous' programming is relevant to JavaScript because we're often making request to servers else where and it can take a couple of seconds to get you data back for instance. And you might not want your program to stall and wait for that data to come back, you want to keep going, keep doing something, so this is where 'callbacks' come in and 'callbacks' were used for a long time until ES6 was released or ES2015 where 'promises' were introduced to the language, and 'promises' give you a more elegant way the handle 'asynchronous' data. And then I think it was ES7, 'async''await' was introduced which is still dealing with promises just in a different way, you're dealing with the response in a way that is more elegant and it looks more like 'synchronous' programming, rather than using the '.then' and so on if you guys have ever used 'promises'. So we're gonna cover all those things, initially I was going to do a separate video on them, but I figured they're all relevant, we're going to use some of the same code on the 'callbacks' and 'promises' and you can see, what you have to do basically change it from a 'callback' to a 'promise'. we're also going to take a look at the 'promise''.all' if you are resolving multiple 'promises', you can do that, you know, call them all at the same time and wait for each one to be done.
+And a lot of this code is actually from my 'Modern JavaScript from the beginning' on 'Udemy', 21 and half hour course on Vanilla JavaScript come core concepts, building projects. Check that course out, I will put a link in the description.
+
+/***********************************************************************/
+
+Alright, so let's get started here, I just have an 'index.html' file, I have a 'callback.js' and 'promises.js'. So we're gonna start with 'callbacks'.
+
+So let's go over 'callbacks.js' and what we're going to do is we're going kind of mimic pope blogposts on a server and getting them and then creating a blog post, so we're just going to have an array and call it posts, and we'll have an array of two posts, these are just going to be objects, so 'title' Post One, and 'body' we'll say This is post one, and let's copy this down, we'll have one more post, so this will be Post Two.
 
 /**Read code**/
 
-
-
-/**Read code**/
-
-
+And I realize that a lot of you guys might already know this stuff, but you know I like to create, you know, beginner to intermediate videos on my channel, so people just learning this stuff, you know, it's really important and I mean, there's not, a in my opinion a lot of great resources out there to learn this type of stuff, at least videos, you know there's a lot of documentation but a lot of people don't like documentation.
+So what we want to do here is to create a function called 'getPosts', ok, now remember we're mimicking how it is to 'fetch' from a server and that can take a couple of seconds or whatever. So we're going to use 'setTimeout()' here, ok.
+'setTimeout()' it takes in a 'callback' function so we could put a function in here, and then it takes in a certain amount of time where you want to delay whatever you put in here, so I'm going to delay it by a second, so we want 1000 , which is one thousand milliseconds.
 
 /**Read code**/
 
-
+Now you can use this syntax or you can use an arrow function which is what I'm going to do, so I'm going to remove the word 'function' and just put in an 'Arrow =>' just like that Okay. We'll keep this ES6 style.
 
 /**Read code**/
 
+So inside this 'setTimeout()'... The purpose of this is to get these posts here and then put them on the page. So let's create a variable called 'output', we're just going to initialize it to nothing.
 
+/**Read code**/
+
+And then we want to loop through the 'posts' so you could use a for loop here if you want, but I'm going to use the high order 'forEach()'. I'm going to say posts.forEach and this actually takes in a 'callback' as well, but I'm going to use an Arrow function, and then as far as a parameter goes, I'm going to say 'post', this could be anything, but I'm going to call it 'post' because that's what it is, aa, you can pass in an 'index' if you want, and then 'forEach''post' we want to add it to the 'output' variables. So let's say 'output' and we want to append so we say 'plus''equals', we'll use some 'back ticks' here, so that we can use 'template syntax' or 'literal' whatever it is. And then, we'll just put <li>s here, and I want the 'post' 'title', so I'm going to use this syntax so I can put a variable in. We'll take that 'post' from this right here. So basically we're iterating here, and then we can grab the 'title' or the 'body' so I'm just going to grab the 'title', so 'post.title'.
+
+/**Read code**/
+
+And then right after the 'forEach', not with in it, but right after the 'forEach' we want to insert it into the body so I'm going to say 'document.body.innerHTML', it doesn't really matter how we insert it here. And we're going to set that '=equal' to 'output'
+
+/**Read code**/
+
+Okay, so we need to actually call this function for it to work, so we'll say 'getPosts()' and let's save.
+And then what happens is after a second, remember is has 'setTimeout' for a second, it's going to load the two 'posts', okay, it did great we get it here the 'posts' from the array and then we're looping through and then we're outputting them or we're putting them into the 'output' variable and then outputting that onto the page with this line.
+
+Alright so, pretty easy.
+
+Now let's create another function called 'createPost()', okay and this is going to take in a new 'post' that we pass in, and we want to do a 'setTimeout()' here as well, because remember  we're hypothetically dealing with a server, so let's say 'setTimout()', put an Arrow function, and then let's say this one takes 'two seconds' so 2000 milliseconds. And inside here all I want to do is take 'posts' and I want to push on to the 'post' array the new post like that.
 
 /**Read code**/
 

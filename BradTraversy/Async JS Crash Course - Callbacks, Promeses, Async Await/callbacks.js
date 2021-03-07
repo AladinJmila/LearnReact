@@ -7,7 +7,7 @@ const posts = [
 ]
 
 /**Read text**/
-
+//
 // function getPosts() {
 //   setTimeout(fuction() {
 //
@@ -55,22 +55,27 @@ function getPosts() {
 
 /**Read text**/
 
-getPosts()
+// getPosts()
 
 /**Read text**/
 
-function createPost(post) {
+// function createPost(post) {
+//   setTimeout(() => {
+//     posts.push(post)
+//   }, 2000)
+// }
+//
+// createPost({ title: 'Post 5', body: 'This is post five'})
+
+/**Read text**/
+
+function createPost(post, callback) {
   setTimeout(() => {
     posts.push(post)
-    console.log(posts)
+    callback()
   }, 2000)
 }
 
-const newPost =  { title: 'Post 5', body: 'This is post five' }
-createPost(newPost)
-
-/**Read text**/
-
-
+createPost({ title: 'Post 5', body: 'This is post five'}, getPosts)
 
 /**Read text**/

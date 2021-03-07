@@ -1,6 +1,6 @@
 
 Hey, what's going on guys. So this is going to be a Crash Course in 'asynchronous' JavaScript, so basically we're going to cover a couple different things. I want to cover 'callbacks' 'promises' and also 'async''await' syntax. Now these are all ways to deal with 'asynchronous' data, and what that means basically 'asynchronous' is when something is going on but you don't want to wait until that thing is done to continue your program, you want to continue while it's happening so it's happening asynchronously rather than 'synchronous' programming where something happens and you wait until it's completely finished until you move on to the next. Now 'asynchronous' programming is relevant to JavaScript because we're often making request to servers else where and it can take a couple of seconds to get you data back for instance. And you might not want your program to stall and wait for that data to come back, you want to keep going, keep doing something, so this is where 'callbacks' come in and 'callbacks' were used for a long time until ES6 was released or ES2015 where 'promises' were introduced to the language, and 'promises' give you a more elegant way the handle 'asynchronous' data. And then I think it was ES7, 'async''await' was introduced which is still dealing with promises just in a different way, you're dealing with the response in a way that is more elegant and it looks more like 'synchronous' programming, rather than using the '.then' and so on if you guys have ever used 'promises'. So we're gonna cover all those things, initially I was going to do a separate video on them, but I figured they're all relevant, we're going to use some of the same code on the 'callbacks' and 'promises' and you can see, what you have to do basically change it from a 'callback' to a 'promise'. we're also going to take a look at the 'promise''.all' if you are resolving multiple 'promises', you can do that, you know, call them all at the same time and wait for each one to be done.
-And a lot of this code is actually from my 'Modern JavaScript from the beginning' on 'Udemy', 21 and half hour course on Vanilla JavaScript come core concepts, building projects. Check that course out, I will put a link in the description.
+And a lot of this code is actually from my 'Modern JavaScript from the beginning' on 'Udemy', 21 and half hour course on Vanilla JavaScript some core concepts, building projects. Check that course out, I will put a link in the description.
 
 /***********************************************************************/
 
@@ -37,23 +37,32 @@ And then what happens is after a second, remember is has 'setTimeout' for a seco
 
 Alright so, pretty easy.
 
-Now let's create another function called 'createPost()', okay and this is going to take in a new 'post' that we pass in, and we want to do a 'setTimeout()' here as well, because remember  we're hypothetically dealing with a server, so let's say 'setTimout()', put an Arrow function, and then let's say this one takes 'two seconds' so 2000 milliseconds. And inside here all I want to do is take 'posts' and I want to push on to the 'post' array the new post like that.
+Now let's create another function called 'createPost()', okay and this is going to take in a new 'post' that we pass in, and we want to do a 'setTimeout()' here as well, because remember  we're hypothetically dealing with a server, so let's say 'setTimout()', put an Arrow function, and then let's say this one takes 'two seconds' so 2000 milliseconds. And inside here all I want to do is take 'posts' and I want to push on to the 'posts' array the new post like that.
 
 /**Read code**/
 
-
-
-/**Read code**/
-
-
+So, what do we want to happen we want to get the 'post' and then create a new one, that's is right. so let's do it, let's create 'post', and let's pass in here and boject with a 'title' and we'll just call it Post three, and the 'body' will say this is post three. Okay simple, we get the 'post' then we create the 'post', save, wait a minute, unexpected token, oh I forgot the function. Alright, so, here we go, post one and post two, now the reason we're not seeing post three is because the 'createPost()' to longer than the 'getPost()', the 'getPost()' happened in one second okay, our server returned in one second, the 'createPost()' however took two seconds, by the time we ran this 'createPost()' the DOM was already painted okay. So we can't do anything beyond that point, so this is where 'asynchronous' programming comes in and this is where 'callbacks' come in which is one way to handle it. So let's do that, let's actually make this work by using 'callback'. So this 'createPost()' here, what we do is we would actually have this take in a function and we'll call it 'callback' because you could essentially call it anything but this is common practice and you want that function to be called right after 'post' is pushed on. Okay so right here we'll say 'callback' like that and then all we have to do is now make this 'getPost()', this is 'callback' so that runs right after this is pushed not waiting two seconds for the entire function, so we can completely get rid of that and then add in the next second parameter of 'getPost()' like that okay, no parenthesis, and let's save and see what's happening. Okay, so what happened is it waited for two seconds and then it showed all the 'posts', and the reason it waited is because it had to wait to create the 'post' before it actually call the 'callback' Okay, so it had to push on to it and then call a 'callback' and this whole thing two seconds, but it adds the extra 'post' Okay. So this is a good example of how 'callbacks' work and why we use 'callbacks'
 
 /**Read code**/
 
+So, let's now look at 'promises' and I'm going to basically use the same code or start with the same code, so we don't need the actual call here, so let's grab the 'posts' and the two functions and let's put them into 'promises'. All right and let's change it in the 'index.html', we'll change this to 'promises.js'.
 
+Okay, now to get 'posts' we're just going to leave that, but for create 'posts' what we want to do is instead of passing in a 'callback' we don't want to do that and we don't want to run the 'callback', instead we want to return a 'promise', so to do that simply return a new 'Promise' and then 'Promise' takes in a 'callback', I'm going to use an Arrow function and it takes in two parameters, so it takes in 'resolve' and 'reject', so basically when you want to 'resolve' a promise successfully, you call 'resolve', when something goes wrong, if you have some kind of error, you want to call 'reject'.
 
 /**Read code**/
 
+So we want to do the same functionality here, that we did, we just want to put this inside the new 'Promise' like that and to 'resolve', actually what we are going to do is create a variable and set it to 'false', normally this would do some error checking you don't have to but if you wanted to, you would do some kind of error checking and let's see if that is 'not true', so if no error then we simply want to 'resolve', when we 'resolve' our 'promise', 'else' then we want to 'reject' and we want to send a message just to say error: something went wrong. And that's not it, so let's go down here and let's 'createPost', let's pass in our actual 'post', so we'll say title Post three, and 'body' will say This is post three. Okay now we're not gonna pass in a 'callback' like 'getPost()', so we're not doing that anymore, this should return a 'Promise', meaning that we can now use the '.then' syntax, we can say '.then' and then in here we want to pass in 'getPosts' like that, all right, so let's try and run it, so we'll save and here we go.
 
+/**Read code**/
+
+So basically, it's waiting, it's going to set a 'timeout' and then as soon as it's done it's going to 'resolve' once it resolves then it'll call 'getPosts'. Okay now if we wanted an error message we can set it to 'true', so since it's set to true it's going to reject. Now if I save this and run it, you get uncaught 'error'. so the solution for this is you guys probably used this before, is the '.catch' so under the '.then', we want to do '.catch' and pass in 'error' and then let's just 'console.log' the error and save.
+
+And now you see that we're actually getting a nice clean error rather than uncaught 'promise' or whatever.
+
+For the most part in my experience, you're mostly going to be dealing with 'promises', so for instance when you use 'Fetch' API or 'Axios' or anything that uses 'promises', the 'Mongoose' library for DB for 'Node.js' uses 'promises', you know more and more libraries are using 'promises' now, so you're mostly going to be dealing with the 'response' rather than creating them yourselves but you should also know how to create them yourself, which is just basically new 'promise'.
+So what I want to do now is look at 'promise.all' because if you have a lot of different 'promises' you don't want to keep having '.then', '.then'.
+
+So you can use the 'promise.all' in that case so I'm going to comment all this out and let's go down here, let's actually change the Arrow function 15:36
 
 /**Read code**/
 

@@ -21,7 +21,20 @@ function getPosts() {
 /**Read text**/
 
 function createPost(post) {
-  return new Promise((resolve, reject) => {})
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      posts.push(post)
+
+      const error = false
+
+      if (!error) {
+        reslove()
+      } else {
+        reject('Error: Something went wrong')
+      }
+
+    }, 2000)
+  })
 }
 
 /**Read text**/

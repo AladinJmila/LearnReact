@@ -60,9 +60,40 @@ So basically, it's waiting, it's going to set a 'timeout' and then as soon as it
 And now you see that we're actually getting a nice clean error rather than uncaught 'promise' or whatever.
 
 For the most part in my experience, you're mostly going to be dealing with 'promises', so for instance when you use 'Fetch' API or 'Axios' or anything that uses 'promises', the 'Mongoose' library for DB for 'Node.js' uses 'promises', you know more and more libraries are using 'promises' now, so you're mostly going to be dealing with the 'response' rather than creating them yourselves but you should also know how to create them yourself, which is just basically new 'promise'.
+
+/**Read code**/
+
 So what I want to do now is look at 'promise.all' because if you have a lot of different 'promises' you don't want to keep having '.then', '.then'.
 
-So you can use the 'promise.all' in that case so I'm going to comment all this out and let's go down here, let's actually change the Arrow function 15:36
+So you can use the 'promise.all' in that case so I'm going to comment out this call and let's go down here, let's actually change back to error to 'false' and let's look at 'promise', Okay, so let's just a bunch of 'promises', we say 'const' 'promise1' 'equal' 'Promise.resolve()', as long as we resolve it and we'll say 'Hello world', then we could say 'promise2', just set this to a variable if we wanted and then just give me different examples, we could say 'promise3' 'equals' 'new' 'Promise()' and we could pass in function with 'resolve' and 'reject', and let's do 'setTimout()' and we'll call 'resolve' and let's call that in two thousand milliseconds, and we'll just pass in 'Goodbye', Okay.
+So now what we can do is we call 'Promise.all()' and what this does is it takes in an array of promises, so we have three of these up here, let's do 'promise1', 'promise2' and 'promise3', and then this will take a '.then', we want to do a 'dot' then we pass here our 'callback', so we'll use the Arrow function and will take in values like that, and then let's just 'console.log' 'values', all right let's see what happens, if I save this, so what happens is it gave us an array with the 'Hello world' so the first 'promise', the second which is just a number and then this one 'Goodbye' to which we actually set a 'timeout' two seconds, and that's why it tool two seconds, it's going to take however the longest 'promise' is that's how long it's going to take to actually show us the values.
+
+/**Read code**/
+
+Alright, just to add one more thing here, let's say 'const' 'promise4', for now we'll, I'm sure a lot of you guys have worker with the Fetch API to make Ajax calls or to make HTTP requests I should say which returns a 'promise', so let's Fetch from, let's see, the JSON type, a code or J what is it, it's JSON placeholder.typicode.com, and we can make a request to, let's say the users right here and get users, I'm going to grab that URL and pass it in here, now this return the 'promise', 'fetch()' is a little weird, because what happens is you need to do two .then()s when you use 'fetch()' because the first needs to format it usually to JSON and then the next '.then()' actually gives you the data, so if I keep it as is, and pass in 'promise4' and save, it's going to work but if we look at the response here we just get like this, weird stuff. What we want to do is for 'fetch()' we want to do '.then()' and we want to 'map' the 'response' to 'res.jason()' and now if we run it, it should give us the actual data which you can see right here is going to be ten users, alright. So that's 'promise.all', pretty easy.
+
+/**Read code**/
+
+Now let's look at, let's see, let's look at 'async await'. Okay, so I'm going to comment this out and  we don't want to change any of this stuff, I mean 'async await', it's a way to handle 'responses', it's not like a different way to write them or anything, basically we need to have a function that's labeled 'asynchronous', so let's go down here, actually we'll go above this because this 'promise.all()' has nothing to do with the code above it, let's say 'async / await'.
+So what we want to do is create a function and call it 'init', now this function has to be labeled 'async' if we want to use 'await' inside of it, and 'await' does just that, it awaits for an 'asynchronous' process or action to complete, so what we will do is call 'createPost()', so I'm just going to copy this here without the '.then()', just simply the 'createPost()' with the 'title' and the 'body' passed in, except we want to call right before it 'await', Okay, and after that we can just simply call 'getPosts()', so we're waiting for this to be done, until we move on and call this. So now we just need to call 'init()', and save and we should see them pop on the screen and there we go.
+Alright, so that how 'async await' works, it's just a more elegant way to handle 'promises'.
+
+/**Read code**/
+
+Now if we want to use it like, let's say with 'fetch()' we could do that as well.
+So I'll go ahead and comment that out. Let's go out of here, let's say: 'async' 'await' with 'fetch. Okay let's copy what we did here, just grab that, and we're going to need an 'async' function, let's just call this, we'll say, function 'fetchUseres()', and we want to call that 'fetch' except we want to put this into a variable and let's call it 'response' or 'res' and set it to 'await' 'fetch', cause remember this returns a 'promise'. Now, again the 'fetch' API is a little weird because the first 'promise' it returns is going to tell we're going to call 'res.json()' on that, so what we need to do is create another variable called 'data' and set it to 'res.json()', and then we can 'console.log()' the 'data', so let's save that, and it's not going to do anything because we didn't call it, so let's call 'fetchUsers()' and save, and there we go, so we should get 10 users, Okay.
+
+/**Read code**/
+
+So it's just a cleaner way of dealing with 'promises', instead of doing the '.then' and all that stuff, especially with 'fetch' makes it look even nicer. We just have these variables and everything is just after the other, there's no '.then' or '.whatever' and it's cleaner than 'callbacks' as well.
+
+So, I mean that's pretty much it guys, I wanted to cover the basics, and kind of you know, for those of you that weren't really wrapping your head around this stuff, and I know a lot of you already know this and that's fine, you know a refresher never hurts. But that's going to be it guys.
+So I am working on some longer form content, some projects, some View.js, UX stuff, some React stuff, Some of the Django, Laravel, so stay tuned for that, it's just taking me a little while to get some stuff together and to get some dealings in order in my personal life, and you know guys if you watched my last video, it tells you a little bit of what's going on.
+But thanks for watching, hopefully you liked this, if you did please leave a 'like' and I will see you in the next video.
+
+/**Read code**/
+
+
 
 /**Read code**/
 

@@ -1,0 +1,43 @@
+
+Hey guys, what's going on.
+
+So a few day ago, I created an AJAX Crash Course where we looked at AJAX and XHR the HTML HTTP object which is used to make 'asynchronous' calls from your browser to the server and you know, you get data asynchronously and so on. 
+Now there was a comment from someone that had mentioned that they think that XHR is outdated. So, I don't personally agree with that those terms outdated, deprecated should be thrown around, and the reason for that is when someone is learning JavaScript like, let's say right now someone wants to learn JavaScript they have to learn about XHR and AJAX, they can't just go to the 'fetch' API
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/
+
+
+
+/**Read code**/

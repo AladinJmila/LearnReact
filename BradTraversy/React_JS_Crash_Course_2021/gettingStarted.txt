@@ -129,4 +129,8 @@ Now, we don't really want to have our tasks in the 'Tasks' component because we'
 
 /***********************************************************************/
 
-So the next thing I want to do is instead of just rendering out an 'h3' for each task I want to have a separate 'Task' 'component'. So let's create a new file called just 'Task' singular '.js' and let's create a 'component'. Let's do a 'div' and give this a 'className="task"' and then in here we'll have an 'h3', and we're going to get passed in here, actually for now let's just say 
+So the next thing I want to do is instead of just rendering out an 'h3' for each task I want to have a separate 'Task' 'component'. So let's create a new file called just 'Task' singular '.js' and let's create a 'component'. Let's do a 'div' and give this a 'className="task"' and then in here we'll have an 'h3', and we're going to get passed in here, actually for now let's just say 'My task' and then what I'll do is in our 'Tasks.js' we'll 'import' the singular 'task' 'component', so that's going to be 'from' '.dot/slash' 'Task', and then instead of 'h3' this is going to be a 'Task' 'component', we're still going to have the 'id' but we want to pass in each task as a 'prop', ok so we're looping through them here and then we're outputting a 'component' and we're passing the 'task' in as 'prop'. So we'll save that and now all we're seeing is 'My Task' because that's all we're putting here, however we're going to catch that 'prop', we're going to take in 'task' and then in the 'h3' we'll say 'task.text', so now we're seeing our task text. So in addition to that we're going to want, let's do a 'paragraph' and we have 'task.day', save that, here we go, looks good.
+
+/***********************************************************************/
+
+49:30

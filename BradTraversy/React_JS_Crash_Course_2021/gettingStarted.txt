@@ -133,4 +133,10 @@ So the next thing I want to do is instead of just rendering out an 'h3' for each
 
 /***********************************************************************/
 
-49:30
+We're going to want to have a 'delete' icon, I'm going to use 'Font Awesome', you could include 'Font Awesome' the CDN in you 'index.html' in you public folder, however what I'm going to do is install 'React Icons' which allows you to use multiple icon libraries. So I'm going to leave my 'dev server' running open a new 'terminal' and say 'npm' install 'react-icons' so that way we can just bring in an icon that we want to use and use it, instead of using a CDN.
+Okay, so 'React Icons' is installed and if you look in your 'package.json' you should see 'react-icons', anything you install with 'npm' as long as it's local and not global you're going to see in here.
+So we want to bring in a specific icon, we're basically using icons as React 'components', we're going to bring in 'FaTimes' which is the 'x' icon 'from' 'react-icons' and then '/slash' 'fa' for 'font awesome' because there's multiple libraries that you can use with this. And then let's go within the 'h3' right here, so after the text we're going to put in <FaTimes /> like we would put in any 'component' and save, I think we have to restart the server after we install 'React Icons', so I'm going back to my 'dev server' and stop that 'Control c', 'Command c', 'npm start', and then there we go. I want to make them red so I'm going to add a 'style' to this, so say 'color' to be 'red' and let's make the 'cursor' a 'pointer'.
+
+/***********************************************************************/
+
+51:38

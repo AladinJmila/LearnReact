@@ -1,6 +1,11 @@
 
-// const -> block
-// let -> block
+const person = {
+  name: 'Mosh',
+  walk: function() {},
+  talk() {}
+}
 
-const x = 1
-x=2
+person.talk()
+
+const targetMember = 'name'
+person[targetMember.value] = 'Jhon'

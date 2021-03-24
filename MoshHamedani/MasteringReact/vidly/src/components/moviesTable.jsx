@@ -9,8 +9,23 @@ class MoviesTable extends Component {
     { path: 'genre.name', label: 'Genre' },
     { path: 'numberInStock', label: 'Stock' },
     { path: 'dailyRentalRate', label: 'Rate' },
-    { key: 'like' },
-    { key: 'delete' },
+    {
+      key: 'like',
+      content: movie => (
+        <Like onLike={() => this.props.onLike(movie)} liked={movie.liked} />
+      ),
+    },
+    {
+      key: 'delete',
+      content: movie => (
+        <button
+          onClick={() => this.props.onDelete(movie)}
+          className='btn btn-danger btn-sm'
+        >
+          Delete
+        </button>
+      ),
+    },
   ]
 
   render() {
@@ -23,28 +38,7 @@ class MoviesTable extends Component {
           sortColumn={sortColumn}
           onSort={onSort}
         />
-        <TableBody />
-        <tbody>
-          {movies.map(movie => (
-            <tr key={movie._id}>
-              <td>{movie.title}</td>
-              <td>{movie.genre.name}</td>
-              <td>{movie.numberInStock}</td>
-              <td>{movie.dailyRentalRate}</td>
-              <td>
-                <Like onLike={() => onLike(movie)} liked={movie.liked} />
-              </td>
-              <td>
-                <button
-                  onClick={() => onDelete(movie)}
-                  className='btn btn-danger btn-sm'
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
+        <TableBody data={movies} columns={this.columns} />
       </table>
     )
   }

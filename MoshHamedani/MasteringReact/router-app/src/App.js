@@ -18,7 +18,9 @@ class App extends Component {
           <Switch>
             <Route
               path='/products'
-              render={props => <Products sortBy='newest' {...props} />}
+              render={props => (
+                <Products sortBy='newest' GitUpdate='testing' {...props} />
+              )}
             />
             <Route path='/posts' component={Posts} />
             <Route path='/admin' component={Dashboard} />

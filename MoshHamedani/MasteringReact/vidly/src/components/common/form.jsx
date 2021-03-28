@@ -63,7 +63,7 @@ class Form extends Component {
       <Input
         type={type}
         name={name}
-        label='Username'
+        label={label}
         value={data[name]}
         onChange={this.handleChange}
         error={errors[name]}

@@ -40,9 +40,13 @@ class App extends Component {
 
     try {
       await axios.delete(apiEndpoint + '/' + post.id)
-      throw new Error('Aladin made error')
     } catch (ex) {
-      alert('An unexpected error occured \n')
+      if (ex.response && ex.response.status === 404)
+        alert('This post has already been deleted.')
+      else {
+        console.log('Logging the error', ex)
+        alert('An unexpected error occured.')
+      }
       this.setState({ posts: originalPosts })
     }
   }

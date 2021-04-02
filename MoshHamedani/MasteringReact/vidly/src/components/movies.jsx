@@ -130,7 +130,6 @@ class Movies extends Component {
           <p>Showing {totalCount} movies in the database</p>
           <SearchBox value={searchQuery} onChange={this.handleSearch} />
           <MoviesTable
-            user={user}
             movies={movies}
             sortColumn={sortColumn}
             onLike={this.handleLike}

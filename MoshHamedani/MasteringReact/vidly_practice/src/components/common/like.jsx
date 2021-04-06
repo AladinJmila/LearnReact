@@ -1,9 +1,9 @@
-const Like = () => {
+const Like = props => {
   let classes = 'fa fa-heart'
-  if (!this.props.liked) classes += '-o'
+  if (!props.liked) classes += '-o'
   return (
     <i
-      onClick={this.props.onClick}
+      onClick={props.onClick}
       className={classes}
       style={{ cursor: 'pointer' }}
       aria-hidden='true'

@@ -7,6 +7,7 @@ import { getGenres } from '../services/genreService'
 class MovieForm extends Form {
   state = {
     data: {
+      id: '',
       title: '',
       genreId: '',
       numberInStock: '',

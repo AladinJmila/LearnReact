@@ -1,5 +1,6 @@
-import axios from 'axios'
 import React, { Component } from 'react'
+import httpService from './services/httpService'
+import config from './config.json'
 import './App.css'
 
 class App extends Component {
@@ -8,22 +9,41 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const { data: posts } = await axios.get(
-      'https://jsonplaceholder.typicode.com/posts'
-    )
+    const { data: posts } = await httpService.get(config.apiEndpoint)
     this.setState({ posts })
   }
 
-  handleAdd = () => {
-    console.log('Add')
+  handleAdd = async () => {
+    const obj = { title: 'a', body: 'b' }
+    const { data: post } = await httpService.post(config.apiEndpoint, obj)
+    const posts = [post, ...this.state.posts]
+    this.setState({ posts })
   }
 
-  handleUpdate = post => {
-    console.log('Update', post)
+  handleUpdate = async post => {
+    post.title = 'UPDATED'
+    await httpService.put(`${config.apiEndpoint}/${post.id}`, post)
+
+    const posts = [...this.state.posts]
+    const index = posts.indexOf(post)
+    posts[index] = { ...post }
+    this.setState({ posts })
   }
 
-  handleDelete = post => {
-    console.log('Delete', post)
+  handleDelete = async post => {
+    const originalPosts = this.state.posts
+
+    const posts = this.state.posts.filter(p => p.id !== post.id)
+    this.setState({ posts })
+
+    try {
+      await httpService.delete(`${config.apiEndpoint}/9999${post.id}`)
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        alert('This post has already been deleted.')
+        this.setState({ posts: originalPosts })
+      }
+    }
   }
 
   render() {
